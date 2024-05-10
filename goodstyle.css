@@ -1,0 +1,51 @@
+﻿.poop {
+    color: aqua;
+}
+header{
+    margin-bottom:4px;
+}
+header img{
+    height:100px;
+    width:300px;
+}
+nav{
+    height:30px;
+    border:3px;
+}
+.wrap {
+    margin-top: 10px;
+    margin-left:10%;
+    margin-right:20%;
+    height:500px;
+    width:75%;
+    height:100%;
+    border: 1px solid black;
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:auto;
+    }
+
+    .wrap .item {
+        height: fit-content;
+        width: fit-content;
+        padding:5%;
+        text-align: center;
+        background-color:aqua;
+        margin-left:5px;
+    }
+    .wrap .about {
+        padding:3px;
+        background-color: aqua;
+        height:fit-content;
+        width:fit-content;
+    }
+    .wrap .about .h3{
+        margin:0px
+        text-align:left;
+    }
+    .wrap .about .p {
+        margin-top:0px;
+        font-size: 10px;
+        text-align:left;
+    }
+
