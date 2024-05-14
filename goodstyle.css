@@ -1,10 +1,15 @@
-﻿.poop {
+﻿body {
+    background-color: mediumpurple;
+    margin:0px;
+}
+.poop {
     color: aqua;
 }
 
 
 header {
-    margin-bottom: 4px;
+   
+    margin-bottom: 0px;
     background-color: beige;
     display: flex;
     justify-content:flex-start;
@@ -63,6 +68,7 @@ nav a {
     padding: 3%;
     display: inline-block;
     min-width: 500px;
+    font-family:'Tahoma';
 }
 
 .temp_box .snd{
@@ -83,14 +89,14 @@ nav a {
 
 .temp_box .trd table {
     width: 100%;
-    border-collapse: collapse; /* To remove default spacing between table cells */
+    border-collapse: collapse; 
 }
 
 .temp_box .trd th,
 .temp_box .trd td {
     border: 1px solid black;
     font-size: larger;
-    padding: 8px; /* Add padding to th and td for better spacing */
+    padding: 8px;
 }
 
 .formn {
@@ -103,4 +109,26 @@ nav a {
 }
 footer{
     background-color: grey;
+}
+.mySlides {
+    display: none;
+
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+.slideshow-container {
+    height: 30%;
+    width: 70%;
+    margin-left: 10%;
+}
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
 }
