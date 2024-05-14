@@ -1,51 +1,106 @@
 ﻿.poop {
     color: aqua;
 }
-header{
-    margin-bottom:4px;
+
+
+header {
+    margin-bottom: 4px;
+    background-color: beige;
+    display: flex;
+    justify-content:flex-start;
+    
 }
-header img{
-    height:100px;
-    width:300px;
+
+header img {
+    height: 200px;
+    width: 400px;
 }
-nav{
-    height:30px;
-    border:3px;
+header h1{
+    float:right;
+    padding-top: 5%;
+
 }
-.wrap {
-    margin-top: 10px;
-    margin-left:10%;
-    margin-right:20%;
-    height:500px;
-    width:75%;
-    height:100%;
+
+nav {
+    height: 50px;
+    border: 3px;
+    background-color: black;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+nav a {
+    float: right;
+    display: flex;
+    color: red;
+    padding-right: 3%;
+    padding-top: 1%;
+    text-align: left;
+    font-size: large;
+    text-decoration: none;
+}
+
+.an_temp_box{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.temp_box{
+    background-color: aqua;
+    text-align: justify;
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    width: 530px;
+}
+
+.temp_box .fst{
+    padding: 3%;
+    display: inline-block;
+    min-width: 500px;
+}
+
+.temp_box .snd{
+    padding: 7%;
+    min-width: 500px;
+    margin-left: 7px;
+    display: inline-block;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.temp_box .trd {
+    padding: 3%;
+    margin-left: 7px;
+    min-width: 500px;
+    display: inline-block;
+}
+
+.temp_box .trd table {
+    width: 100%;
+    border-collapse: collapse; /* To remove default spacing between table cells */
+}
+
+.temp_box .trd th,
+.temp_box .trd td {
     border: 1px solid black;
-    display:grid;
-    grid-auto-flow:column;
-    grid-auto-columns:auto;
-    }
+    font-size: larger;
+    padding: 8px; /* Add padding to th and td for better spacing */
+}
 
-    .wrap .item {
-        height: fit-content;
-        width: fit-content;
-        padding:5%;
-        text-align: center;
-        background-color:aqua;
-        margin-left:5px;
-    }
-    .wrap .about {
-        padding:3px;
-        background-color: aqua;
-        height:fit-content;
-        width:fit-content;
-    }
-    .wrap .about .h3{
-        margin:0px
-        text-align:left;
-    }
-    .wrap .about .p {
-        margin-top:0px;
-        font-size: 10px;
-        text-align:left;
-    }
-
+.formn {
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+footer{
+    background-color: grey;
+}
