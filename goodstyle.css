@@ -11,20 +11,16 @@ header {
    
     margin-bottom: 0px;
     background-color: beige;
-    display: flex;
-    justify-content:flex-start;
+    padding-left:30%;
     
 }
 
 header img {
     height: 200px;
-    width: 400px;
-}
-header h1{
-    float:right;
-    padding-top: 5%;
+    width: 700px;
 
 }
+
 
 nav {
     height: 50px;
