@@ -1,56 +1,103 @@
 ﻿body {
-    background-color: mediumpurple;
-    margin:0px;
+    background-color: #ffff;
+    margin: 0px;
 }
+
 .poop {
     color: aqua;
 }
 
 
 header {
-   
     margin-bottom: 0px;
-    background-color: beige;
-    padding-left:30%;
     
+    display: flex;
+    justify-content: space-between;
+    padding-right: 40px;
+    padding-left: 40px;
 }
 
-header img {
-    height: 200px;
-    width: 700px;
 
-}
+    header .logo {
+        padding-left: 50px;
+    }
+    header .auth {
+        padding-top: 40px;
+    }
+    header .auth a{
+        cursor: pointer;
+        outline: 0px;
+        background-color: #273239;
+        color: white;
+        font-family:'Agency FB';
+        padding: 8px 27px;
+        border-radius: 5px;
+        font-size: 20px;
+        text-decoration: none !important;
+        margin-right: 20px;
+        border: 0px;
+        white-space: nowrap;
+    }
+    
+
+    header .search1 {
+        padding-top: 40px;
+    }
+
+    header .social {
+        padding-top: 40px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    header .social a {
+        color: red;
+        padding-left: 3%;
+        padding-right: 30px;
+        padding-top: 1%;
+        text-align: left;
+        font-size: 25px;
+        text-decoration: none;
+    }
+
+    header h5 {
+        margin: 0px;
+    }
+
+    header .logo img {
+        height: 70px;
+        width: 50px;
+        padding-left: 15px;
+    }
 
 
 nav {
+    display: flex;
+    justify-content: space-evenly;
     height: 50px;
     border: 3px;
-    background-color: black;
+
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-
 }
 
-nav a {
-    float: right;
-    display: flex;
-    color: red;
-    padding-right: 3%;
-    padding-top: 1%;
-    text-align: left;
-    font-size: large;
-    text-decoration: none;
-}
+    nav a {
+        color: red;
+        padding-right: 3%;
+        padding-top: 1%;
+        text-align: left;
+        font-size: 25px;
+        text-decoration: none;
+    }
 
-.an_temp_box{
+.an_temp_box {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
 }
 
-.temp_box{
+.temp_box {
     background-color: aqua;
     text-align: justify;
     display: flex;
@@ -60,40 +107,40 @@ nav a {
     width: 530px;
 }
 
-.temp_box .fst{
-    padding: 3%;
-    display: inline-block;
-    min-width: 500px;
-    font-family:'Tahoma';
-}
+    .temp_box .fst {
+        padding: 3%;
+        display: inline-block;
+        min-width: 500px;
+        font-family: 'Tahoma';
+    }
 
-.temp_box .snd{
-    padding: 7%;
-    min-width: 500px;
-    margin-left: 7px;
-    display: inline-block;
-    overflow-y: scroll;
-    scrollbar-width: none;
-}
+    .temp_box .snd {
+        padding: 7%;
+        min-width: 500px;
+        margin-left: 7px;
+        display: inline-block;
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
 
-.temp_box .trd {
-    padding: 3%;
-    margin-left: 7px;
-    min-width: 500px;
-    display: inline-block;
-}
+    .temp_box .trd {
+        padding: 3%;
+        margin-left: 7px;
+        min-width: 500px;
+        display: inline-block;
+    }
 
-.temp_box .trd table {
-    width: 100%;
-    border-collapse: collapse; 
-}
+        .temp_box .trd table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-.temp_box .trd th,
-.temp_box .trd td {
-    border: 1px solid black;
-    font-size: larger;
-    padding: 8px;
-}
+        .temp_box .trd th,
+        .temp_box .trd td {
+            border: 1px solid black;
+            font-size: larger;
+            padding: 8px;
+        }
 
 .formn {
     width: auto;
@@ -103,22 +150,26 @@ nav a {
     border-radius: 8px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
-footer{
+
+footer {
     background-color: grey;
 }
+
 .mySlides {
     display: none;
-
 }
+
 .fade {
     animation-name: fade;
     animation-duration: 1.5s;
 }
+
 .slideshow-container {
     height: 30%;
     width: 70%;
     margin-left: 10%;
 }
+
 @keyframes fade {
     from {
         opacity: .4
