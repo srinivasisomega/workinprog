@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const numberEl = document.querySelector('#number');
     const dateEventEl = document.querySelector('#dateevent');
     const form = document.querySelector('#save');
+    
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('input', function (e) {
         e.preventDefault();
         let isUsernameValid = checkUsername(),
             isEmailValid = checkEmail(),

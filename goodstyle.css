@@ -1,33 +1,37 @@
 ﻿body {
-    background-color: #ffff;
+    background-color:#F5DAD2;
     margin: 0px;
 }
 
 body header {
     margin-bottom: 0px;
-
+    background-color: #75A47F;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding-right: 40px;
     padding-left: 40px;
 }
 
 header .social {
+    
     padding-top: 40px;
     display: flex;
     justify-content: space-evenly;
 }
 
 header .social a {
-    color: red;
+    color:black;
     padding-left: 3%;
     padding-right: 30px;
     padding-top: 1%;
+    margin-bottom: 2%;
     text-align: left;
     font-size: 25px;
     text-decoration: none;
 }
-
+header .social a:hover{
+    background-color: #FCFFE0;
+}
 body header .logo {
     padding-left: 50px;
 }
@@ -49,8 +53,8 @@ body header .auth {
 body header .auth a {
     cursor: pointer;
     outline: 0px;
-    background-color: #273239;
-    color: white;
+    background-color: #FCFFE0;
+    color: #75A47F;
     font-family: 'Agency FB';
     padding: 8px 27px;
     border-radius: 5px;
@@ -66,7 +70,7 @@ body header .search1 {
     padding-top: 40px;
 }
 body h2{
-    padding-left: 32%;
+    padding-left: 25%;
 }
 
 
@@ -89,23 +93,56 @@ nav a {
     font-size: 25px;
     text-decoration: none;
 }*/
-
-.an_temp_box {
+.prev{cursor: pointer;
+    position: absolute;
+    left: 20px;
     
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: grey;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  } .next {
+    cursor: pointer;
+    position: absolute;
+    right:20px;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: grey;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 50px;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+.an_temp_box {
+    max-width: 1000px;
+  position: relative;
+  margin: auto;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
 }
 
-.temp_box {
-    background-color: aqua;
-    text-align: justify;
-    display: flex;
-    overflow: hidden;
-    overflow-x: scroll;
-    scrollbar-width: none;
-    width: 530px;
-}
+
 
 .temp_box .fst {
     padding: 3%;
@@ -130,13 +167,13 @@ nav a {
     display: inline-block;
 }
 
-.temp_box .trd table {
+.mySlides table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.temp_box .trd th,
-.temp_box .trd td {
+.mySlides th,
+.mySlides td {
     border: 1px solid black;
     font-size: larger;
     padding: 8px;
@@ -145,18 +182,19 @@ nav a {
 .formn {
     width: auto;
     height: auto;
-    background-color: #fff;
+    background-color:#FCFFE0;;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 footer {
-    background-color:#fff;
+    background-color:#75A47F;
+    margin-top: 30%;
 }
 footer nav{
     display: flex;
-    justify-content:center;
+    justify-content:space-evenly;
 }
 footer nav a img{
     height:70px;
@@ -166,7 +204,10 @@ footer nav a img{
 
 
 .mySlides {
+    background-color: #FCFFE0;
     display: none;
+    padding: 3%;
+    max-width: 600px;
 }
 
 .fade {
@@ -188,4 +229,23 @@ footer nav a img{
     to {
         opacity: 1
     }
+}
+body .container{
+    padding-top: 10%;
+    display:flex;
+    justify-content: center;
+    
+}
+.to-do form legend{
+    font-family: Impact;
+    font-size: 40px;
+}
+body .container .to-do form .menu{
+    padding-right: 10px;
+    font-size: x-large;
+}
+body .container .to-do form{
+    background-color: #FCFFE0;
+    padding: 4%;
+    width: max-content;
 }
