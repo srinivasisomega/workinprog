@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshya Foodways</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="80 Stunning Examples of Colorful Logo Designs _ Inspirationfeed.jpg" width="50px" height="70px">
+            <h5>Lakshya Foodways</h5>
+        </div>
+    </header>
+    <br><br>
+    <div class="container">
+        <div class="to-do">
+            <form>
+                <legend>Basic Plan</legend>
+                <br>
+                <div class="menu">
+                    <input type="checkbox" id="item1" name="item" value="10">
+                    <label for="item1"> Sambar</label><br>
+                    <input type="checkbox" id="item2" name="item" value="20">
+                    <label for="item2"> Curd</label><br>
+                    <input type="checkbox" id="item3" name="item" value="50">
+                    <label for="item3"> Biryani</label><br>
+                    <!-- Add more checkboxes as needed -->
+                </div>
+                <br>
+                <button id="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const btn = document.getElementById('btn');
+
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                openPopup();
+            });
+
+            function openPopup() {
+                // Open popup window with video.html
+                const popup = window.open('video.html', '_blank', 'width=600,height=400');
+                
+                // Listen for message from popup window
+                window.addEventListener('message', function (event) {
+                    if (event.data === 'videoEnded') {
+                        // Enable checkboxes in the main window
+                        checkboxes.forEach(function (checkbox) {
+                            checkbox.disabled = false;
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
