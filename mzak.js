@@ -8,78 +8,93 @@ document.addEventListener('DOMContentLoaded', function () {
 
     form.addEventListener('input', async function (e) {
         e.preventDefault();
-        let isUsernameValid = checkUsername(),
-            isEmailValid = checkEmail(),
-            isNumberValid = await checkNumber(),
-            isDateValid = validateDateEvent();
+        try {
+            let isUsernameValid = await checkUsername();
+            if (!isUsernameValid) throw new Error('Username validation failed');
 
-        let isFormValid = isUsernameValid &&
-            isEmailValid && isNumberValid && isDateValid;
+            let isEmailValid = await checkEmail();
+            if (!isEmailValid) throw new Error('Email validation failed');
 
-        if (isFormValid) {
-            document.getElementById('formstatus').innerHTML="form elements valid"
-        } else {
-            document.getElementById('formstatus').innerHTML="form elements not valid"
+            let isNumberValid = await checkNumber();
+            if (!isNumberValid) throw new Error('Number validation failed');
+
+            let isDateValid = await validateDateEvent();
+            if (!isDateValid) throw new Error('Date validation failed');
+
+            document.getElementById('formstatus').innerHTML = "Form elements valid";
+        } catch (error) {
+            console.error("Error occurred:", error);
+            document.getElementById('formstatus').innerHTML = "Form elements not valid";
         }
     });
 
+
     const checkUsername = () => {
-        let valid = false;
-        const username = usernameEl.value.trim();
-        if (!isRequired(username)) {
-            showError(usernameEl, 'Username cannot be blank.');
-        } else {
-            showSuccess(usernameEl);
-            valid = true;
-        }
-        return valid;
+        return new Promise((resolve, reject) => {
+            const username = usernameEl.value.trim();
+            if (!isRequired(username)) {
+                showError(usernameEl, 'Username cannot be blank.');
+                resolve(false);
+            } else {
+                showSuccess(usernameEl);
+                resolve(true);
+            }
+        });
     };
+    const checkEmail = () => {
+        return new Promise((resolve, reject) => {
+            const email = emailEl.value.trim();
+            if (!isRequired(email)) {
+                showError(emailEl, 'Email cannot be blank.');
+                resolve(false);
+            } else if (!isEmailValid(email)) {
+                showError(emailEl, 'Email is not valid.');
+                resolve(false);
+            } else {
+                showSuccess(emailEl);
+                resolve(true);
+            }
+        });
+    }
 
-    const checkEmail = async () => {
-        let valid = false;
-        const email = emailEl.value.trim();
-        if (!isRequired(email)) {
-            showError(emailEl, 'Email cannot be blank.');
-        } else if (!isEmailValid(email)) {
-            showError(emailEl, 'Email is not valid.');
-        } else {
-            showSuccess(emailEl);
-            valid = true;
-        }
-        return valid;
-    };
+    const checkNumber = () => {
+        return new Promise((resolve, reject) => {
+            const number = numberEl.value.trim();
+            if (!isRequired(number)) {
+                showError(numberEl, 'Mobile number cannot be blank.');
+                resolve(false);
+            } else if (!isNumberValid(number)) {
+                showError(numberEl, 'Mobile number must start with 91');
+                resolve(false);
+            } else {
+                showSuccess(numberEl);
+                resolve(true);
+            }
+        });
+    }
 
-    const checkNumber = async () => {
-        let valid = false;
-        const number = numberEl.value.trim();
-        if (!isRequired(number)) {
-            showError(numberEl, 'Mobile number cannot be blank.');
-        } else if (!isNumberValid(number)) {
-            showError(numberEl, 'Mobile number must start with 91');
-        } else {
-            showSuccess(numberEl);
-            valid = true;
-        }
-        return valid;
-    };
+
 
     const validateDateEvent = () => {
-        let valid = false;
-        const dateEvent = new Date(dateEventEl.value.trim());
-        const currentDate = new Date();
-        const fiveDaysFromNow = new Date();
-        fiveDaysFromNow.setDate(currentDate.getDate() + 5);
+        return new Promise((resolve, reject) => {
+            const dateEvent = new Date(dateEventEl.value.trim());
+            const currentDate = new Date();
+            const fiveDaysFromNow = new Date();
+            fiveDaysFromNow.setDate(currentDate.getDate() + 5);
 
-        if (!dateEvent) {
-            showError(dateEventEl, 'Date of event cannot be blank.');
-        } else if (dateEvent < currentDate || dateEvent < fiveDaysFromNow) {
-            showError(dateEventEl, 'Date must not be within the next five days.');
-        } else {
-            showSuccess(dateEventEl);
-            valid = true;
-        }
-        return valid;
+            if (!dateEvent) {
+                showError(dateEventEl, 'Date of event cannot be blank.');
+                resolve(false);
+            } else if (dateEvent < currentDate || dateEvent < fiveDaysFromNow) {
+                showError(dateEventEl, 'Date must not be within the next five days.');
+                resolve(false);
+            } else {
+                showSuccess(dateEventEl);
+                resolve(true);
+            }
+        });
     };
+
 
     const isEmailValid = (email) => {
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -87,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const isNumberValid = (number) => {
-        const re = /(0|91)?[6-9][0-9]{9}/;
+        const re = /(0|91)?[6-9][0-9]{12}/;
         return re.test(number);
     };
 
