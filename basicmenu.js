@@ -1,4 +1,35 @@
-document.getElementById('btn').onclick = function() {
+document.getElementById('form2').addEventListener('change', function (e) {
+  e.preventDefault();
+
+  calculateTotalPrice().then(totalPrice => {
+      const numberOfPeople = parseInt(document.getElementById('item10').value);
+      document.getElementById('totalPrice').innerHTML = "Total price for "+ numberOfPeople + " people: "+ totalPrice;
+  }).catch(error => {
+    const numberOfPeople1 = parseInt(document.getElementById('item10').value);
+    document.getElementById('totalPrice').innerHTML = "lakshya foodways will not cater to " + numberOfPeople1 + " people only. the number must be greater than 50";
+
+  });
+});
+
+function calculateTotalPrice() {
+  return new Promise((resolve, reject) => {
+      let totalValue = 0;
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      checkboxes.forEach(checkbox => {
+          totalValue += parseInt(checkbox.value);
+      });
+      const numberOfPeople = parseInt(document.getElementById('item10').value);
+      
+      if (numberOfPeople>50) {
+          const totalPrice = totalValue * numberOfPeople;
+          resolve(totalPrice);
+      } else {
+        const  numberOfPeople1=numberOfPeople;
+          reject(numberOfPeople1);
+      }
+  });
+}
+/*document.getElementById('btn').onclick = function() {
     var markedCheckboxes = document.getElementsByName('item');
     var total = 0;
     for (var checkbox of markedCheckboxes) {
@@ -7,8 +38,8 @@ document.getElementById('btn').onclick = function() {
       }
     }
     alert('Total amount: ' + total);
-  }
-  document.addEventListener('DOMContentLoaded', function () {
+  }*/
+ /* document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
     checkboxes.forEach(function (checkbox) {
@@ -50,4 +81,4 @@ document.getElementById('btn').onclick = function() {
             img.remove();
         }
     }
-});
+});*/

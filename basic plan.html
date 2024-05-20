@@ -6,6 +6,13 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="goodstyle.css">
     <title>Lakshya Foodways</title>
+    <style>#totalPrice {
+        text-align: center; /* Align text to the center */
+        color: blue; /* Set text color to blue */
+        font-size: 18px; /* Set font size */
+        font-weight: bold; /* Make text bold */
+        padding-top: 2%;
+      }</style>
 </head>
 
 <body>
@@ -20,7 +27,7 @@
         <div class="to-do">
             
            
-            <form >
+            <form id="form2">
                 <legend>basic plan</legend>
                 <br>
                 <div class="menu">
@@ -42,13 +49,15 @@
                     <label for="item8"> Noodles</label><br>
                     <input type="checkbox" id="item9" name="item" value="90">
                     <label for="item9"> Chaat</label><br>
+                    <input type="number" id="item10">
+                    <label for="item10">number of people</label><br>
+                    
                 </div>
-                <br>
-                <button id="btn">Submit</button>
             </form>
 
         </div>
     </div>
+    <div id="totalPrice"></div>
     <script src="basicmenu.js"></script>
 </body>
 

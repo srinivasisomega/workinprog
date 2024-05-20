@@ -255,3 +255,7 @@ body .container .to-do form{
 footer .footer-bottom p{
     text-align: center;
 }
+body .totalPrice{
+    text-align: center;
+    color:#75A47F;
+}
