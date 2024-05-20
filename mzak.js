@@ -4,22 +4,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const numberEl = document.querySelector('#number');
     const dateEventEl = document.querySelector('#dateevent');
     const form = document.querySelector('#save');
-    
 
-    form.addEventListener('submit', function (e) {
+
+    form.addEventListener('input', async function (e) {
         e.preventDefault();
         let isUsernameValid = checkUsername(),
             isEmailValid = checkEmail(),
-            isNumberValid = checkNumber(),
+            isNumberValid = await checkNumber(),
             isDateValid = validateDateEvent();
 
         let isFormValid = isUsernameValid &&
             isEmailValid && isNumberValid && isDateValid;
 
         if (isFormValid) {
-            alert("Form submitted successfully!");
+            document.getElementById('formstatus').innerHTML="form elements valid"
         } else {
-            alert("Form submission failed. Please check your inputs.");
+            document.getElementById('formstatus').innerHTML="form elements not valid"
         }
     });
 
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return valid;
     };
 
-    const checkEmail = () => {
+    const checkEmail = async () => {
         let valid = false;
         const email = emailEl.value.trim();
         if (!isRequired(email)) {
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return valid;
     };
 
-    const checkNumber = () => {
+    const checkNumber = async () => {
         let valid = false;
         const number = numberEl.value.trim();
         if (!isRequired(number)) {
