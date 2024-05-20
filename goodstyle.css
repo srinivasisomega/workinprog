@@ -70,7 +70,7 @@ body header .search1 {
     padding-top: 40px;
 }
 body h2{
-    padding-left: 25%;
+    text-align: center;
 }
 
 
@@ -189,8 +189,11 @@ nav a {
 }
 
 footer {
+    bottom: 0;
+    position: relative;
     background-color:#75A47F;
-    margin-top: 30%;
+    margin-top: 20%;
+    overflow:hidden;
 }
 footer nav{
     display: flex;
@@ -248,4 +251,7 @@ body .container .to-do form{
     background-color: #FCFFE0;
     padding: 4%;
     width: max-content;
+}
+footer .footer-bottom p{
+    text-align: center;
 }

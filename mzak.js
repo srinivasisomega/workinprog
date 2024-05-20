@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('#save');
     
 
-    form.addEventListener('input', function (e) {
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
         let isUsernameValid = checkUsername(),
             isEmailValid = checkEmail(),
@@ -17,10 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
             isEmailValid && isNumberValid && isDateValid;
 
         if (isFormValid) {
-            // Proceed with form submission
-            console.log("Form submitted successfully!");
+            alert("Form submitted successfully!");
         } else {
-            console.log("Form submission failed. Please check your inputs.");
+            alert("Form submission failed. Please check your inputs.");
         }
     });
 
@@ -56,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isRequired(number)) {
             showError(numberEl, 'Mobile number cannot be blank.');
         } else if (!isNumberValid(number)) {
-            showError(numberEl, 'Mobile number is not valid.');
+            showError(numberEl, 'Mobile number must start with 91');
         } else {
             showSuccess(numberEl);
             valid = true;
@@ -88,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const isNumberValid = (number) => {
-        const re = /^[6-9]\d{9}$/;
+        const re = /(0|91)?[6-9][0-9]{9}/;
         return re.test(number);
     };
 
