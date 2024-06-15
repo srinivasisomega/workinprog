@@ -1,12 +1,11 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const usernameEl = document.querySelector('#username');
-    const emailEl = document.querySelector('#email');
-    const numberEl = document.querySelector('#number');
-    const dateEventEl = document.querySelector('#dateevent');
-    const form = document.querySelector('#save');
+$(document).ready(function () {
+    const usernameEl = $('#username');
+    const emailEl = $('#email');
+    const numberEl = $('#number');
+    const dateEventEl = $('#dateevent');
+    const form = $('#save');
 
-
-    form.addEventListener('input', async function (e) {
+    form.on('input', async function (e) {
         e.preventDefault();
         try {
             let isUsernameValid = await checkUsername();
@@ -21,17 +20,16 @@ document.addEventListener('DOMContentLoaded', function () {
             let isDateValid = await validateDateEvent();
             if (!isDateValid) throw new Error('Date validation failed');
 
-            document.getElementById('formstatus').innerHTML = "Form elements valid";
+            $('#formstatus').text('Form elements valid').css('color', 'green');
         } catch (error) {
             console.error("Error occurred:", error);
-            document.getElementById('formstatus').innerHTML = "Form elements not valid";
+            $('#formstatus').text('Form elements not valid').css('color', 'red');
         }
     });
 
-
     const checkUsername = () => {
         return new Promise((resolve, reject) => {
-            const username = usernameEl.value.trim();
+            const username = usernameEl.val().trim();
             if (!isRequired(username)) {
                 showError(usernameEl, 'Username cannot be blank.');
                 resolve(false);
@@ -41,9 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     };
+
     const checkEmail = () => {
         return new Promise((resolve, reject) => {
-            const email = emailEl.value.trim();
+            const email = emailEl.val().trim();
             if (!isRequired(email)) {
                 showError(emailEl, 'Email cannot be blank.');
                 resolve(false);
@@ -55,11 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 resolve(true);
             }
         });
-    }
+    };
 
     const checkNumber = () => {
         return new Promise((resolve, reject) => {
-            const number = numberEl.value.trim();
+            const number = numberEl.val().trim();
             if (!isRequired(number)) {
                 showError(numberEl, 'Mobile number cannot be blank.');
                 resolve(false);
@@ -71,13 +70,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 resolve(true);
             }
         });
-    }
-
-
+    };
 
     const validateDateEvent = () => {
         return new Promise((resolve, reject) => {
-            const dateEvent = new Date(dateEventEl.value.trim());
+            const dateEvent = new Date(dateEventEl.val().trim());
             const currentDate = new Date();
             const fiveDaysFromNow = new Date();
             fiveDaysFromNow.setDate(currentDate.getDate() + 5);
@@ -95,14 +92,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-
     const isEmailValid = (email) => {
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     };
 
     const isNumberValid = (number) => {
-        const re = /(0|91)?[6-9][0-9]{12}/;
+        const re = /(0|91)?[6-9][0-9]{10}/;
         return re.test(number);
     };
 
@@ -111,18 +107,24 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const showError = (input, message) => {
-        const formField = input.parentElement;
-        formField.classList.remove('success');
-        formField.classList.add('error');
-        const error = formField.querySelector('small');
-        error.textContent = message;
+        const formField = input.parent();
+        formField.removeClass('success').addClass('error');
+        input.css({
+            'border-color': 'red',
+            'box-shadow': '0 0 5px red'
+        });
+        const error = formField.find('small');
+        error.text(message);
     };
 
     const showSuccess = (input) => {
-        const formField = input.parentElement;
-        formField.classList.remove('error');
-        formField.classList.add('success');
-        const error = formField.querySelector('small');
-        error.textContent = '';
+        const formField = input.parent();
+        formField.removeClass('error').addClass('success');
+        input.css({
+            'border-color': 'green',
+            'box-shadow': '0 0 10px green'
+        });
+        const error = formField.find('small');
+        error.text('');
     };
 });

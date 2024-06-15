@@ -6,13 +6,34 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="goodstyle.css">
     <title>Lakshya Foodways</title>
-    <style>#formstatus {
-        text-align: center; /* Align text to the center */
-        color: blue; /* Set text color to blue */
-        font-size: 18px; /* Set font size */
-        font-weight: bold; /* Make text bold */
-        padding-top: 2%;
-      }</style>
+    <style>
+        #formstatus {
+            text-align: center; /* Align text to the center */
+            color: blue; /* Set text color to blue */
+            font-size: 18px; /* Set font size */
+            font-weight: bold; /* Make text bold */
+            padding-top: 2%;
+        }
+    </style>
+    <script src="lib\jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Initial click handler setup
+            setupClickHandlers();
+
+            function setupClickHandlers() {
+                $("#pp").off('click').on('click', function () {
+                    if ($(this).text().trim() === 'Call us') {
+                        $(this).html('<a>84XXXXXxX6</a><hr><a>99XXXXXX66</a>');
+                    } else {
+                        $(this).html('<a>Call us</a>');
+                    }
+                    // Re-setup click handlers to allow repeated clicks
+                    setupClickHandlers();
+                });
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -33,9 +54,9 @@
             <input type="text" placeholder="Search..">
         </div>
         <div class="auth">
-            <a type="button">call us</a>
+            <a id="pp" type="button">call us</a>
         </div>
-
+        
     </header>
     <br />
     <nav>
@@ -84,7 +105,7 @@
         </div>
         <div class="mySlides">
             <h1>About us</h1>
-            <p>
+            <p >
                 "Welcome to the savory world of culinary delights brought to you by Lakshya Foodways, nestled in the
                 heart of Manikonda. Prepare to embark on a gastronomic journey like no other, where every bite is
                 crafted with passion and precision to tantalize your taste buds and satisfy your cravings. Join us
