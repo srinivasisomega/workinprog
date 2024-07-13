@@ -1,41 +1,49 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="goodstyle.css">
     <title>Lakshya Foodways</title>
+    <link rel="stylesheet" href="goodstyle.css">
     <style>
         #formstatus {
-            text-align: center; /* Align text to the center */
-            color: blue; /* Set text color to blue */
-            font-size: 18px; /* Set font size */
-            font-weight: bold; /* Make text bold */
+            text-align: center;
+            color: blue;
+            font-size: 18px;
+            font-weight: bold;
             padding-top: 2%;
         }
     </style>
-    <script src="lib\jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Initial click handler setup
-            setupClickHandlers();
+            // Function to handle 'call us' button click
+            $('#pp').click(function () {
+                if ($(this).text().trim() === 'call us') {
+                    $(this).html('<a>84XXXXXxX6</a><hr><a>99XXXXXX66</a>');
+                } else {
+                    $(this).html('<a>call us</a>');
+                }
+            });
 
-            function setupClickHandlers() {
-                $("#pp").off('click').on('click', function () {
-                    if ($(this).text().trim() === 'Call us') {
-                        $(this).html('<a>84XXXXXxX6</a><hr><a>99XXXXXX66</a>');
-                    } else {
-                        $(this).html('<a>Call us</a>');
-                    }
-                    // Re-setup click handlers to allow repeated clicks
-                    setupClickHandlers();
-                });
-            }
+            // Functionality for menu buttons
+            $('#m1').click(function () {
+                $('#image-container').show().html('<img src="https://blog.photoadking.com/wp-content/uploads/2020/09/Restaurant-Menu-Templates.jpg">');
+            });
+
+            $('#m2').click(function () {
+                $('#image-container').html('<img src="2img.jpeg">');
+            });
+
+            $('#m3').click(function () {
+                $('#image-container').load('images/image3.html');
+            });
+
+            $('#m4').click(function () {
+                $('#image-container').load('images/image4.html');
+            });
         });
     </script>
 </head>
-
 <body>
     <header>
         <div class="social">
@@ -46,7 +54,7 @@
         </div>
         <div class="logo">
             <div class="mig">
-                <img src="80 Stunning Examples of Colorful Logo Designs _ Inspirationfeed.jpg">
+                <img src="80 Stunning Examples of Colorful Logo Designs _ Inspirationfeed.jpg" alt="Logo">
             </div>
             <h5>Lakshya Foodways</h5>
         </div>
@@ -56,125 +64,105 @@
         <div class="auth">
             <a id="pp" type="button">call us</a>
         </div>
-        
     </header>
-    <br />
-    <nav>
 
-    </nav>
-    <br /><br />
+    <h2>Welcome to Lakshya Foodways, we provide catering for all events.</h2>
+    <div class="disp">
+        <div class="an_temp_box ">
 
-    <h2>Welcome to Lakshya Foodways, we provide catering for all events.</h2><br>
-    <div class="an_temp_box">
+            <div class="mySlides">
+                <form id="save" class="formn">
+                    <h1>Share your details</h1>
+                    <h4>We will call you back for negotiating your menu and final quotation.</h4>
+                    <div class="form-field">
+                        <label for="username">Username:</label><br>
+                        <input type="text" name="username" id="username" autocomplete="off"><br>
+                        <small></small><br><br>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email:</label><br>
+                        <input type="text" name="email" id="email" autocomplete="off"><br>
+                        <small></small><br><br>
+                    </div>
+                    <div class="form-field">
+                        <label for="number">Mobile:</label><br>
+                        <input type="tel" name="number" id="number" autocomplete="off"><br>
+                        <small></small><br><br>
+                    </div>
+                    <div class="form-field">
+                        <label for="date">Date of Event:</label><br>
+                        <input type="date" name="dateevent" id="dateevent" autocomplete="off" min="<?= date('Y-m-d') ?>" max="<?= date('Y-m-d', strtotime('+5 days')) ?>"><br>
+                        <small></small><br><br>
+                    </div>
+                    <div class="form-field">
+                        <input type="submit" value="Confirm">
+                    </div>
+                </form>
+                <div id="formstatus"></div>
+            </div>
 
-        <div class="mySlides">
-            <form id="save" class="formn">
-                <h1>Share your details</h1>
-                <h4>We will call you back for negotiating your menu and final quotation.</h4>
-                <div class="form-field">
-                    <label for="username">Username:</label><br>
-                    <input type="text" name="username" id="username" autocomplete="off"><br>
-                    <small></small><br><br>
-                </div>
+            <div class="mySlides">
+                <h1>About us</h1>
+                <p>"Welcome to the savory world of culinary delights brought to you by Lakshya Foodways, nestled in the heart of Manikonda. Prepare to embark on a gastronomic journey like no other, where every bite is crafted with passion and precision to tantalize your taste buds and satisfy your cravings. Join us as we delve into the exquisite flavors, impeccable presentation, and unparalleled hospitality that define our catering service. Whether you're planning an intimate gathering or a grand celebration, Lakshya Foodways is here to elevate your dining experience to new heights. Get ready to savor the extraordinary with us!"</p>
+                <img src="chalama.jpeg" alt="Owner">
+                <h5>chalama reddy- owner</h5>
+            </div>
 
-                <div class="form-field">
-                    <label for="email">Email:</label><br>
-                    <input type="text" name="email" id="email" autocomplete="off"><br>
-                    <small></small><br><br>
-                </div>
-
-                <div class="form-field">
-                    <label for="number">Mobile:</label><br>
-                    <input type="tel" name="number" id="number" autocomplete="off"><br>
-                    <small></small><br><br>
-                </div>
-
-                <div class="form-field">
-                    <label for="date">Date of Event:</label><br>
-                    <input type="date" name="dateevent" id="dateevent" autocomplete="off"><br>
-                    <small></small><br><br>
-                </div>
-
-                <div class="form-field">
-                    <input type="submit" value="Confirm">
-                </div>
-
-            </form>
-            <div id="formstatus"></div>
+            <div class="mySlides">
+                <h3>click on the menu you want an estimate of</h3>
+                <table>
+                    <tr>
+                        <th>serial no</th>
+                        <th>plan type</th>
+                        <th>cost estimate</th>
+                        <th>menu</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>basic</td>
+                        <td><a href="basic plan.html">Click here</a></td>
+                        <td><input id="m1" type="button" value="menu"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Gold</td>
+                        <td><a href="gold_plan.html" target="_blank">Click here</a></td>
+                        <td><input id="m2" type="button" value="menu"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Platinum</td>
+                        <td><a href="platinum_plan.html" target="_blank">Click here</a></td>
+                        <td><input id="m3" type="button" value="menu"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Diamond</td>
+                        <td><a href="diamond_plan.html" target="_blank">Click here</a></td>
+                        <td><input id="m4" type="button" value="menu"></td>
+                    </tr>
+                </table>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div id="image-container" styles="width:50px height:50px">
 
         </div>
-        <div class="mySlides">
-            <h1>About us</h1>
-            <p >
-                "Welcome to the savory world of culinary delights brought to you by Lakshya Foodways, nestled in the
-                heart of Manikonda. Prepare to embark on a gastronomic journey like no other, where every bite is
-                crafted with passion and precision to tantalize your taste buds and satisfy your cravings. Join us
-                as we
-                delve into the exquisite flavors, impeccable presentation, and unparalleled hospitality that define
-                our
-                catering service. Whether you're planning an intimate gathering or a grand celebration, Lakshya
-                Foodways
-                is here to elevate your dining experience to new heights. Get ready to savor the extraordinary with
-                us!"
-            </p>
-            <img src="chalama.jpeg">
-            <h5>chalama reddy- owner</h5>
-        </div>
-
-        <div class="mySlides">
-            <h3>click on the menu you want an estimate of</h3>
-            <table>
-                <tr>
-                    <th>serial no</th>
-                    <th>plan type</th>
-                    <th>cost estimate</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>basic</td>
-                    <td><a href="basic plan.html">Click here</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Gold</td>
-                    <td><a href="gold_plan.html" target="_blank">Click here</a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Platinum</td>
-                    <td><a href="platinum_plan.html" target="_blank">Click here</a></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Diamond</td>
-                    <td><a href="diamond_plan.html" target="_blank">Click here</a></td>
-                </tr>
-            </table>
-        </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
     </div>
     <footer>
-
         <nav>
-            <a href="https://www.facebook.com/LakshyaFoodways/"><img src="footer1.jpg"></a>
-            <a href="https://www.instagram.com/lakshyafoodways/"><img src="footer2.jpg"></a>
-            <a href="https://www.youtube.com/@lakshyafoodways1652"><img src="footer3.jpg"></a>
-            <a
-                href="https://www.justdial.com/Hyderabad/Lakshya-Foodways-Near-Little-Caterpillar-School-Manikonda/040PXX40-XX40-171224063501-I1G1_BZDE"><img
-                    src="footer4.png"></a>
+            <a href="https://www.facebook.com/LakshyaFoodways/"><img src="footer1.jpg" alt="Facebook"></a>
+            <a href="https://www.instagram.com/lakshyafoodways/"><img src="footer2.jpg" alt="Instagram"></a>
+            <a href="https://www.youtube.com/@lakshyafoodways1652"><img src="footer3.jpg" alt="Youtube"></a>
+            <a href="https://www.justdial.com/Hyderabad/Lakshya-Foodways-Near-Little-Caterpillar-School-Manikonda/040PXX40-XX40-171224063501-I1G1_BZDE"><img src="footer4.png" alt="JustDial"></a>
         </nav>
         <div class="footer-bottom">
-            <p>Lakshya Foodways catering services are subject to our terms and conditions, including cancellation
-                policies and menu customization options. While we strive to accommodate dietary preferences, we cannot
-                guarantee the absence of allergens, and clients are responsible for informing us of any allergies or
-                dietary restrictions."</p>
+            <p>Lakshya Foodways catering services are subject to our terms and conditions, including cancellation policies and menu customization options. While we strive to accommodate dietary preferences, we cannot guarantee the absence of allergens, and clients are responsible for informing us of any allergies or dietary restrictions.</p>
         </div>
     </footer>
+
     <script defer src="mzak.js"></script>
     <script src="script.js"></script>
-
 </body>
-
 </html>

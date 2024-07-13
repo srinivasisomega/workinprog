@@ -265,3 +265,11 @@ body .totalPrice{
     text-align: center;
     color:#75A47F;
 }
+body .image-container {
+    max-width: 50px;
+    max-height:50px;
+}
+.disp{
+    display :flex;
+    flex-direction:row;
+}
