@@ -27,20 +27,65 @@
 
             // Functionality for menu buttons
             $('#m1').click(function () {
-                $('#image-container').show().html('<img src="https://blog.photoadking.com/wp-content/uploads/2020/09/Restaurant-Menu-Templates.jpg">');
-            });
+    if ($(this).css('margin') != '20px') {
+        $('#an_temp_box').css({
+            'max-width': '1000px',
+            'position': 'relative',
+            'margin': '20px',
+            'display': 'flex',
+            'justify-content': 'center'
+        });
+        $('#image-container').html('<img style="width:350px; height:300px; right:300px" src="images/menu.jfif">');
+    } else {
+        $('#an_temp_box').css({
+            'max-width': '1000px',
+            'position': 'relative',
+            'margin': 'auto',
+            'display': 'flex',
+            'justify-content': 'center'
+        });
+        $('#image-container').html('');
+    }
+});
+
+
 
             $('#m2').click(function () {
-                $('#image-container').html('<img src="2img.jpeg">');
+                $('#an_temp_box').css({
+                    'max-width': '1000px',
+                    'position': 'relative',
+                    'margin': '20px',
+                    'display': 'flex',
+                    'justify-content': 'center'
+
+                });
+                $('#image-container').html('<img style="width:350px; height:300px;" src="images/gold.jfif">');
             });
 
             $('#m3').click(function () {
-                $('#image-container').load('images/image3.html');
+                $('#an_temp_box').css({
+                    'max-width': '1000px',
+                    'position': 'relative',
+                    'margin': '20px',
+                    'display': 'flex',
+                    'justify-content': 'center'
+
+                });
+                $('#image-container').html('<img style="width:350px; height:300px;" src="images/platinum.jfif">');
             });
 
             $('#m4').click(function () {
-                $('#image-container').load('images/image4.html');
+                $('#an_temp_box').css({
+                    'max-width': '1000px',
+                    'position': 'relative',
+                    'margin': '20px',
+                    'display': 'flex',
+                    'justify-content': 'center'
+
+                });
+                $('#image-container').html('<img style="width:350px; height:300px;" src="images/diamond.jfif">');
             });
+
         });
     </script>
 </head>
@@ -68,7 +113,8 @@
 
     <h2>Welcome to Lakshya Foodways, we provide catering for all events.</h2>
     <div class="disp">
-        <div class="an_temp_box ">
+        <div class="an_temp_box " id="an_temp_box">
+
 
             <div class="mySlides">
                 <form id="save" class="formn">
@@ -143,9 +189,11 @@
                     </tr>
                 </table>
             </div>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
         </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
         <div id="image-container" styles="width:50px height:50px">
 
         </div>
