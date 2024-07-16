@@ -4,15 +4,6 @@
     <meta charset="utf-8" />
     <title>Lakshya Foodways</title>
     <link rel="stylesheet" href="goodstyle.css">
-    <style>
-        #formstatus {
-            text-align: center;
-            color: blue;
-            font-size: 18px;
-            font-weight: bold;
-            padding-top: 2%;
-        }
-    </style>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -27,28 +18,26 @@
 
             // Functionality for menu buttons
             $('#m1').click(function () {
-    if ($(this).css('margin') != '20px') {
-        $('#an_temp_box').css({
-            'max-width': '1000px',
-            'position': 'relative',
-            'margin': '20px',
-            'display': 'flex',
-            'justify-content': 'center'
-        });
-        $('#image-container').html('<img style="width:350px; height:300px; right:300px" src="images/menu.jfif">');
-    } else {
-        $('#an_temp_box').css({
-            'max-width': '1000px',
-            'position': 'relative',
-            'margin': 'auto',
-            'display': 'flex',
-            'justify-content': 'center'
-        });
-        $('#image-container').html('');
-    }
-});
-
-
+                if ($(this).css('margin') != '20px') {
+                    $('#an_temp_box').css({
+                        'max-width': '1000px',
+                        'position': 'relative',
+                        'margin': '20px',
+                        'display': 'flex',
+                        'justify-content': 'center'
+                    });
+                    $('#image-container').html('<img style="width:350px; height:300px; right:300px" src="images/menu.jfif">');
+                } else {
+                    $('#an_temp_box').css({
+                        'max-width': '1000px',
+                        'position': 'relative',
+                        'margin': 'auto',
+                        'display': 'flex',
+                        'justify-content': 'center'
+                    });
+                    $('#image-container').html('');
+                }
+            });
 
             $('#m2').click(function () {
                 $('#an_temp_box').css({
@@ -57,7 +46,6 @@
                     'margin': '20px',
                     'display': 'flex',
                     'justify-content': 'center'
-
                 });
                 $('#image-container').html('<img style="width:350px; height:300px;" src="images/gold.jfif">');
             });
@@ -69,7 +57,6 @@
                     'margin': '20px',
                     'display': 'flex',
                     'justify-content': 'center'
-
                 });
                 $('#image-container').html('<img style="width:350px; height:300px;" src="images/platinum.jfif">');
             });
@@ -81,11 +68,24 @@
                     'margin': '20px',
                     'display': 'flex',
                     'justify-content': 'center'
-
                 });
                 $('#image-container').html('<img style="width:350px; height:300px;" src="images/diamond.jfif">');
             });
 
+            // Slideshow functionality
+            var slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                var slides = $(".slide-item");
+                slides.each(function (index) {
+                    $(this).removeClass("active-slide-item");
+                });
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1; }
+                slides.eq(slideIndex - 1).addClass("active-slide-item");
+                setTimeout(showSlides, 4000); // Change slide every 4 seconds
+            }
         });
     </script>
 </head>
@@ -111,7 +111,21 @@
         </div>
     </header>
 
+    <div class="image-slider-container">
+        <div class="slide-item active-slide-item" style="background-image: url('images/slides1.jfif');"></div>
+        <div class="slide-item" style="background-image: url('images/slides2.jfif');"></div>
+        <div class="slide-item" style="background-image: url('images/slides3.jfif');"></div>
+        <div class="slide-item" style="background-image: url('images/slides4.png');"></div>
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+    </div>
     <h2>Welcome to Lakshya Foodways, we provide catering for all events.</h2>
+    <div class="mySlis">
+        <h1>About us</h1>
+        <p>"Welcome to the savory world of culinary delights brought to you by Lakshya Foodways, nestled in the heart of Manikonda. Prepare to embark on a gastronomic journey like no other, where every bite is crafted with passion and precision to tantalize your taste buds and satisfy your cravings. Join us as we delve into the exquisite flavors, impeccable presentation, and unparalleled hospitality that define our catering service. Whether you're planning an intimate gathering or a grand celebration, Lakshya Foodways is here to elevate your dining experience to new heights. Get ready to savor the extraordinary with us!"</p>
+        <img src="chalama.jpeg" alt="Owner">
+        <h5>chalama reddy- owner</h5>
+    </div>
     <div class="disp">
         <div class="an_temp_box " id="an_temp_box">
 
@@ -146,14 +160,6 @@
                 </form>
                 <div id="formstatus"></div>
             </div>
-
-            <div class="mySlides">
-                <h1>About us</h1>
-                <p>"Welcome to the savory world of culinary delights brought to you by Lakshya Foodways, nestled in the heart of Manikonda. Prepare to embark on a gastronomic journey like no other, where every bite is crafted with passion and precision to tantalize your taste buds and satisfy your cravings. Join us as we delve into the exquisite flavors, impeccable presentation, and unparalleled hospitality that define our catering service. Whether you're planning an intimate gathering or a grand celebration, Lakshya Foodways is here to elevate your dining experience to new heights. Get ready to savor the extraordinary with us!"</p>
-                <img src="chalama.jpeg" alt="Owner">
-                <h5>chalama reddy- owner</h5>
-            </div>
-
             <div class="mySlides">
                 <h3>click on the menu you want an estimate of</h3>
                 <table>

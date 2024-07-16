@@ -77,7 +77,7 @@ body header .search1 {
 }
 body h2{
     padding-top:40px;
-    margin-top:100px;
+    margin-top:auto;
     margin-bottom:20px;
     text-align: center;
 }
@@ -106,7 +106,7 @@ nav a {
     position: absolute;
     left: 150px;
     right:800px;
-    top: 50%;
+    top: auto;
     width: 9px;
     margin-top: -22px;
     padding: 16px;
@@ -121,7 +121,7 @@ nav a {
     position: absolute;
     right:180px;
     /*left:500px;*/
-    top: 50%;
+    top: auto;
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -204,17 +204,23 @@ footer {
     bottom: 0;
     position: relative;
     background-color:#75A47F;
-    margin-top: 20%;
+    margin-top: 5%;
+    padding:1%;
     overflow:hidden;
+    opacity:0.7;
 }
 footer nav{
     display: flex;
     justify-content:space-evenly;
 }
 footer nav a img{
-    height:70px;
-    width:70px;
+    height:50px;
+    width:50px;
 
+}
+footer .footer-bottom p{
+    font-size:smaller;
+    
 }
 
 
@@ -236,15 +242,7 @@ footer nav a img{
     margin-left: 10%;
 }
 
-@keyframes fade {
-    from {
-        opacity: .4
-    }
 
-    to {
-        opacity: 1
-    }
-}
 body .container{
     padding-top: 10%;
     display:flex;
@@ -280,4 +278,37 @@ body .image-container {
     flex-direction:row;
     justify-content:center;
     align-items:center;
+}
+.image-slider-container {
+    top:auto;
+    position: relative;
+    max-width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide-item {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1);
+    transition: transform 1.5s ease-in-out;
+}
+
+.active-slide-item {
+    display: block;
+}
+body .mySlis {
+    font-family:cursive;
+    color: #FCFFE0;
+    background-color: #75A47F;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom:1%;
+    padding:2%;
+}
+body .mySlis h5{
+    font-size:15px;
 }
